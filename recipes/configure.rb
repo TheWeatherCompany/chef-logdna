@@ -112,3 +112,7 @@ else
   end
 
 end
+
+file '/etc/logdna.conf' do
+  notifies :restart, 'service[logdna-agent]', :delayed
+end
