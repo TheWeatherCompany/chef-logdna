@@ -9,6 +9,8 @@ default['logdna']['conf_config'] = nil
 default['logdna']['conf_hostname'] = nil
 default['logdna']['conf_tags'] = nil
 default['logdna']['conf_exclude_regex'] = nil
+default['logdna']['conf_apihost'] = nil
+default['logdna']['conf_loghost'] = nil
 
 ## Agent State:
 default['logdna']['agent_install'] = true

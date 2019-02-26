@@ -8,6 +8,8 @@ conf_exclude = node['logdna']['conf_exclude']
 conf_hostname = node['logdna']['conf_hostname']
 conf_tags = node['logdna']['conf_tags']
 conf_exclude_regex = node['logdna']['conf_exclude_regex']
+conf_apihost = node['logdna']['conf_apihost']
+conf_loghost = node['logdna']['conf_loghost']
 
 if !conf_config.nil?
 
