@@ -18,6 +18,7 @@ if !conf_config.nil?
     execute 'update config' do
       command 'logdna-agent -c ' + conf_config
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   rescue
     raise 'Please, install logdna-agent...'
@@ -31,6 +32,7 @@ else
       execute 'update key' do
         command 'logdna-agent -k ' + conf_key
         action :run
+        notifies :restart, 'service[logdna-agent]', :delayed
       end
     ## It is enough to check here
     ## whether agent has been installed:
@@ -45,6 +47,7 @@ else
     execute 'update directories' do
       command 'logdna-agent -d ' + conf_logdir
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
@@ -54,6 +57,7 @@ else
     execute 'include files' do
       command 'logdna-agent -f ' + conf_logfile
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
@@ -63,6 +67,7 @@ else
     execute 'exclude files' do
       command 'logdna-agent -d ' + conf_exclude
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
@@ -72,6 +77,7 @@ else
     execute 'update hostname' do
       command 'logdna-agent -n ' + conf_hostname
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
@@ -81,6 +87,7 @@ else
     execute 'add tags' do
       command 'logdna-agent -t ' + conf_tags
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
@@ -90,6 +97,7 @@ else
     execute 'exclude regex' do
       command 'logdna-agent -r ' + conf_exclude_regex
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
@@ -99,6 +107,7 @@ else
     execute 'update API host' do
       command 'logdna-agent -s ' + conf_apihost
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
@@ -108,11 +117,8 @@ else
     execute 'update log host' do
       command 'logdna-agent -s ' + conf_loghost
       action :run
+      notifies :restart, 'service[logdna-agent]', :delayed
     end
   end
 
-end
-
-file '/etc/logdna.conf' do
-  notifies :restart, 'service[logdna-agent]', :delayed
 end
