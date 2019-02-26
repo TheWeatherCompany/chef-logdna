@@ -9,10 +9,10 @@ yum_repository 'logdna-agent' do
 end
 
 ## Updating the sources; so, LogDNA Agent Repo will be in effect:
-execute 'yum_update' do
-  command 'yum update -y'
-  action :run
-end
+#execute 'yum_update' do
+#  command 'yum update -y'
+#  action :run
+#end
 
 ## Installing LogDNA Agent:
 yum_package 'logdna-agent' do
