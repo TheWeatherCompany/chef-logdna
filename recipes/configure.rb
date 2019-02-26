@@ -93,4 +93,22 @@ else
     end
   end
 
+  ## Adding API host into /etc/logdna.conf
+  ## if exists:
+  unless conf_apihost.nil?
+    execute 'update API host' do
+      command 'logdna-agent -s ' + conf_apihost
+      action :run
+    end
+  end
+
+  ## Adding log host into /etc/logdna.conf
+  ## if exists:
+  unless conf_loghost.nil?
+    execute 'update log host' do
+      command 'logdna-agent -s ' + conf_loghost
+      action :run
+    end
+  end
+
 end
