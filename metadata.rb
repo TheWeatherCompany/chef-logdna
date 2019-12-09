@@ -3,7 +3,7 @@ maintainer 'Andrew Kener'
 maintainer_email 'andrew.kener@ibm.com'
 description 'Installs/Configures LogDNA Agent'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.1'
+version '0.1.2'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 license 'MIT'
 
