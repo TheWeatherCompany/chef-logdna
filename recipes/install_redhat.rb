@@ -4,7 +4,7 @@
 yum_repository 'logdna-agent' do
   description	'LogDNA Agent\'s Stable Repo'
   baseurl 'http://repo.logdna.com/el6/'
-  enabled false
+  enabled true
   gpgcheck false
 end
 
